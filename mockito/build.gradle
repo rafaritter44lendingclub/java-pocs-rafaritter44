@@ -1,0 +1,13 @@
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.12'
+    testCompile group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
+}
