@@ -1,9 +1,12 @@
 package com.github.rafaritter44.java_pocs.mockito;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.notNull;
 import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -38,6 +41,7 @@ public class HelloWorldTest {
 		personDAO.add("Tarzan");
 		personDAO.add("Socrates");
 		assertEquals("Hello Rafael Ritter, Tarzan, Socrates!", helloWorld.sayHelloToEveryone());
+		verify(personDAO, times(3)).add(anyString());
 	}
 
 }
