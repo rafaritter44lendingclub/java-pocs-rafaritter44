@@ -1,0 +1,12 @@
+apply plugin: "java"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile group: 'io.projectreactor', name: 'reactor-core', version: '3.2.5.RELEASE'
+}
