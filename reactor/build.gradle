@@ -8,5 +8,8 @@ repositories {
 }
 
 dependencies {
-	compile group: 'io.projectreactor', name: 'reactor-core', version: '3.2.5.RELEASE'
+	def reactorVersion = '3.2.5.RELEASE'
+	compile group: 'io.projectreactor', name: 'reactor-core', version: reactorVersion
+	testCompile group: 'io.projectreactor', name: 'reactor-test', version: reactorVersion
+	testCompile group: 'junit', name: 'junit', version: '4.12'
 }
