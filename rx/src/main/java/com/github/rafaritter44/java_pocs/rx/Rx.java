@@ -35,14 +35,14 @@ public class Rx {
 	private static List<Person> databaseCall() {
 		return Arrays.asList(
 				Person.build()
-						.withName("Erik Meijer")
-						.withAge(55),
+					.withName("Erik Meijer")
+					.withAge(55),
 				Person.build()
-						.withName("Rafael Ritter")
-						.withAge(22),
+					.withName("Rafael Ritter")
+					.withAge(22),
 				Person.build()
-						.withName("John Doe")
-						.withAge(10));
+					.withName("John Doe")
+					.withAge(10));
 	}
 	
 	private static void waitAndPrint(Integer number) {
