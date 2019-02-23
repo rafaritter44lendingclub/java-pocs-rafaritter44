@@ -24,7 +24,8 @@ public class Rx {
 		
 		System.out.println("Nothing happened yet!");
 		
-		reactiveProgrammers.subscribe(reactiveProgrammer -> System.out.println("Reactive Programmer: " + reactiveProgrammer));
+		reactiveProgrammers.subscribe(reactiveProgrammer ->
+				System.out.println("Reactive Programmer: " + reactiveProgrammer));
 		
 		IntStream.range(1, Integer.MAX_VALUE)
 				.forEach(Rx::waitAndPrint);
