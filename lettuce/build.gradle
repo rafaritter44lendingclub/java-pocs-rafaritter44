@@ -1,0 +1,12 @@
+apply plugin: "java"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile 'io.lettuce:lettuce-core:5.1.5.RELEASE'
+}
