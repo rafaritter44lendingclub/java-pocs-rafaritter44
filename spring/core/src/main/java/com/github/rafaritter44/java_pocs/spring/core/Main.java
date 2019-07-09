@@ -1,11 +1,11 @@
-package com.github.rafaritter44.java_pocs.spring_core;
+package com.github.rafaritter44.java_pocs.spring.core;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.github.rafaritter44.java_pocs.spring_core.config.AppConfig;
-import com.github.rafaritter44.java_pocs.spring_core.service.GoodbyeService;
-import com.github.rafaritter44.java_pocs.spring_core.service.HelloService;
+import com.github.rafaritter44.java_pocs.spring.core.config.AppConfig;
+import com.github.rafaritter44.java_pocs.spring.core.service.GoodbyeService;
+import com.github.rafaritter44.java_pocs.spring.core.service.HelloService;
 
 public class Main {
 	

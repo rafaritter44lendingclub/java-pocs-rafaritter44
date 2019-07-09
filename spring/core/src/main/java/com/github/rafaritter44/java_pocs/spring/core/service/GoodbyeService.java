@@ -1,4 +1,4 @@
-package com.github.rafaritter44.java_pocs.spring_core.service;
+package com.github.rafaritter44.java_pocs.spring.core.service;
 
 public class GoodbyeService {
 	

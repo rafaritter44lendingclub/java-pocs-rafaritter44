@@ -1,4 +1,4 @@
-package com.github.rafaritter44.java_pocs.spring_core.repository;
+package com.github.rafaritter44.java_pocs.spring.core.repository;
 
 import java.util.Arrays;
 import java.util.List;

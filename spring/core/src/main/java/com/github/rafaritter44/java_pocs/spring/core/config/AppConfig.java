@@ -1,13 +1,13 @@
-package com.github.rafaritter44.java_pocs.spring_core.config;
+package com.github.rafaritter44.java_pocs.spring.core.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-import com.github.rafaritter44.java_pocs.spring_core.service.GoodbyeService;
+import com.github.rafaritter44.java_pocs.spring.core.service.GoodbyeService;
 
 @Configuration
-@ComponentScan(basePackages = "com.github.rafaritter44.java_pocs.spring_core")
+@ComponentScan(basePackages = "com.github.rafaritter44.java_pocs.spring.core")
 public class AppConfig {
 	
 	@Bean

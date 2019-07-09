@@ -1,11 +1,11 @@
-package com.github.rafaritter44.java_pocs.spring_core.service;
+package com.github.rafaritter44.java_pocs.spring.core.service;
 
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.github.rafaritter44.java_pocs.spring_core.repository.HelloRepository;
+import com.github.rafaritter44.java_pocs.spring.core.repository.HelloRepository;
 
 @Service
 public class HelloService {
