@@ -10,6 +10,8 @@ import com.rabbitmq.client.DeliverCallback;
 
 public class Consumer {
 	
+	private static final boolean AUTO_ACK = true;
+	
 	private final Channel channel = ChannelFactory.newChannel();
 	
 	public void consume() {
@@ -20,7 +22,7 @@ public class Consumer {
 		};
 		CancelCallback cancelCallback = consumerTag -> {};
 		try {
-			channel.basicConsume(QueueDeclarer.getQueue(), deliverCallback, cancelCallback);
+			channel.basicConsume(QueueDeclarer.getQueue(), AUTO_ACK, deliverCallback, cancelCallback);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}

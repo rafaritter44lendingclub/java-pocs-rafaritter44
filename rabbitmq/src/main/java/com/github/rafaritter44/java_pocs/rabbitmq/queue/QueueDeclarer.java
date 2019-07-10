@@ -9,7 +9,7 @@ public class QueueDeclarer {
 	
 	private static final String QUEUE = "hello";
 	private static final boolean DURABLE = true;
-	private static final boolean EXCLUSIVE = true;
+	private static final boolean EXCLUSIVE = false;
 	private static final boolean AUTO_DELETE = false;
 	private static final Map<String, Object> ARGUMENTS = null;
 	

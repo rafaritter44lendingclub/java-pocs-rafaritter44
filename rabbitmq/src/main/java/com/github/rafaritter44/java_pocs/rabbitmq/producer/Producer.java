@@ -16,8 +16,11 @@ public class Producer {
 	
 	private final Channel channel = ChannelFactory.newChannel();
 	
-	public void produce() {
+	public Producer() {
 		QueueDeclarer.declareQueue(channel);
+	}
+	
+	public void produce() {
 		try {
 			channel.basicPublish(EXCHANGE, ROUTING_KEY, BASIC_PROPERTIES, MESSAGE.getBytes());
 			System.out.println(String.format(" [x] Sent '%s'", MESSAGE));
