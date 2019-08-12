@@ -1,0 +1,18 @@
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+     mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.jboss.resteasy', name: 'resteasy-jaxrs', version:'3.1.4.Final'
+    compile group: 'org.jboss.resteasy', name: 'resteasy-servlet-initializer', version:'3.1.4.Final'
+    compile group: 'org.jboss.weld.servlet', name: 'weld-servlet-shaded', version:'3.0.2.Final'
+    compile group: 'org.jboss.resteasy', name: 'resteasy-jackson-provider', version:'3.1.0.Final'
+    compile group: 'org.jboss.resteasy', name: 'resteasy-cdi', version:'3.1.4.Final'
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '5.4.4.Final'
+    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.6'
+}
