@@ -56,12 +56,12 @@ In order to run the application, it is necessary to:
             </datasources>
         </subsystem>
 ```
-8. Build the application .war with $ mvn clean install
+8. Build the application .war with `$ mvn clean install`
 9. Move the generated .war to wildfly-17.0.1.Final/standalone/deployments/
 10. Make sure you have Postgres installed
 11. Create a Postgres database named "enterprise"
-    1. Run $ sudo -u postgres psql
-    2. Run $ CREATE DATABASE enterprise;
+    1. Run `$ sudo -u postgres psql`
+    2. Run `$ CREATE DATABASE enterprise;`
 12. Run this script: wildfly-17.0.1.Final/bin/standalone.sh
 
 After Wildfly deploys the application, it should be listening on port 8080, and you should be able to call the following endpoints:
