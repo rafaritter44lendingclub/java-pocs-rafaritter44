@@ -9,10 +9,10 @@ In order to run the application, it is necessary to:
 
 The application should be listening on port 8080, and you should be able to call the following endpoints:
 
-- GET /jaxrs-cdi-jpa/api/homework-assignment
-- GET /jaxrs-cdi-jpa/api/homework-assignment/{id}
-- DELETE /jaxrs-cdi-jpa/api/homework-assignment/{id}
-- POST /jaxrs-cdi-jpa/api/homework-assignment
+- GET /api/homework-assignment
+- GET /api/homework-assignment/{id}
+- DELETE /api/homework-assignment/{id}
+- POST /api/homework-assignment
 
 Sample request body for POST:
 ```json
