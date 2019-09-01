@@ -1,0 +1,9 @@
+version: '3'
+services:
+  producer:
+    build: producer/
+    command: consumer
+  consumer:
+    build: consumer/
+    expose:
+      - '5555'
