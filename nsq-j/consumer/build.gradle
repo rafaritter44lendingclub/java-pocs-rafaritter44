@@ -1,0 +1,21 @@
+apply plugin: 'java'
+
+jar {
+	manifest {
+		attributes 'Main-Class': 'com.github.rafaritter44.java_pocs.nsq_j.consumer.Consumer'
+	}
+	from {
+		configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+	}
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile 'com.sproutsocial:nsq-j:0.9.4'
+}
