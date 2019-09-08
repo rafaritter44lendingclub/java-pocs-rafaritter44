@@ -1,0 +1,14 @@
+version: '3'
+services:
+  kafka:
+    build: .
+    expose:
+      - '9092'
+  producer:
+    build: producer/
+    depends_on:
+      - kafka
+  consumer:
+    build: consumer/
+    depends_on:
+      - kafka
