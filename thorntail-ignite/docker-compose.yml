@@ -1,0 +1,17 @@
+version: '3'
+services:
+  ignite:
+    image: apacheignite/ignite
+    expose:
+      - '10800'
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: postgres
+  thorntail:
+    build: .
+    depends_on:
+      - ignite
+      - postgres
+    ports:
+      - '8079-8080:8080'
