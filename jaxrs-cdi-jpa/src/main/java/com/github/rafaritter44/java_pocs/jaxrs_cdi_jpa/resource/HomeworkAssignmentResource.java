@@ -40,7 +40,7 @@ public class HomeworkAssignmentResource {
 	
 	@DELETE
 	@Path("/{id}")
-	public Response remove(@PathParam("id") Long id) {
+	public Response removeById(@PathParam("id") Long id) {
 		return Response.ok(homeworkAssignmentDAO.removeById(id)).build();
 	}
 	
