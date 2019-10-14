@@ -20,7 +20,7 @@ public class Producer {
 	
 	public static void main(String[] args) throws IOException {
 		@SuppressWarnings("resource")
-		KafkaProducer<String, String> producer = new KafkaProducer<String, String>(readProperties());
+		KafkaProducer<String, String> producer = new KafkaProducer<>(readProperties());
 		Runtime.getRuntime().addShutdownHook(new Thread(producer::close));
 		Executors.newSingleThreadScheduledExecutor().scheduleAtFixedRate(() -> {
 			for (int i = 0; i < 10; i++) {
