@@ -1,8 +1,12 @@
-apply plugin: 'java'
+plugins {
+	id 'org.springframework.boot' version '2.2.2.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id 'java'
+}
 
 jar {
     manifest {
-        attributes 'Main-Class': 'com.github.rafaritter44.java_pocs.micrometer_prometheus.JvmMemorySample'
+        attributes 'Main-Class': 'com.github.rafaritter44.java_pocs.micrometer_prometheus.MicrometerPrometheusApplication'
     }
     from {
         configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
@@ -17,6 +21,7 @@ repositories {
 }
 
 dependencies {
-	compile 'io.micrometer:micrometer-registry-prometheus:latest.release'
-	compile 'com.sun.net.httpserver:http:20070405'
+	implementation 'io.micrometer:micrometer-registry-prometheus:latest.release'
+	implementation 'com.sun.net.httpserver:http:20070405'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
 }
