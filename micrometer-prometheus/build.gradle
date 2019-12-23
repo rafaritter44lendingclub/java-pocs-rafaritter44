@@ -22,6 +22,5 @@ repositories {
 
 dependencies {
 	implementation 'io.micrometer:micrometer-registry-prometheus:latest.release'
-	implementation 'com.sun.net.httpserver:http:20070405'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 }
