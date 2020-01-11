@@ -1,0 +1,19 @@
+apply plugin: "java"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+ext {
+	datastaxVersion = '3.7.1'
+	slf4jVersion = '1.7.0'
+}
+
+dependencies {
+	compile group: 'com.datastax.cassandra', name: 'cassandra-driver-core', version: datastaxVersion
+	compile group: 'com.datastax.cassandra', name: 'cassandra-driver-mapping', version: datastaxVersion
+	compile group: 'org.slf4j', name: 'slf4j-simple', version: slf4jVersion
+}
+
+repositories {
+	mavenCentral()
+}
