@@ -1,0 +1,19 @@
+apply plugin: "java"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+ext {
+    rsocketVersion = '0.12.1'
+    slf4jVersion = '1.7.30'
+}
+
+dependencies {
+	compile group: 'io.rsocket', name: 'rsocket-core', version: rsocketVersion
+	compile group: 'io.rsocket', name: 'rsocket-transport-netty', version: rsocketVersion
+	compile group: 'org.slf4j', name: 'slf4j-simple', version: slf4jVersion
+}
+
+repositories {
+    mavenCentral()
+}
