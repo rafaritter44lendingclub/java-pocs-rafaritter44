@@ -31,7 +31,8 @@ public class Main {
 	}
 	
 	private static void printValueOf(AnnotatedElement annotatedElement) {
-		System.out.println(annotatedElement.getAnnotation(MyAnnotation.class).value());
+		MyAnnotation annotation = annotatedElement.getAnnotation(MyAnnotation.class);
+		System.out.println(annotation.value());
 	}
 	
 }
