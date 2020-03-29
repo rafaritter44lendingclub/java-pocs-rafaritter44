@@ -59,7 +59,7 @@ public class MessageServerHandler extends SimpleChannelInboundHandler<FullHttpRe
 	@Override
 	public void exceptionCaught(final ChannelHandlerContext ctx, final Throwable cause) {
 		cause.printStackTrace();
-        ctx.close();
+		ctx.close();
 	}
 	
 }
