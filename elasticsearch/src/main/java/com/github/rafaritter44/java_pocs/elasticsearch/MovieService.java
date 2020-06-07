@@ -88,11 +88,6 @@ public class MovieService {
 			final DeleteRequest request = new DeleteRequest(INDEX, documentId);
 			final DeleteResponse response = client.delete(request, RequestOptions.DEFAULT);
 			return response.getResult() == Result.DELETED;
-		} catch (final ElasticsearchStatusException e) {
-			if (e.status() == RestStatus.NOT_FOUND) {
-				return false;
-			}
-			throw e;
 		} catch (final IOException e) {
 			throw new RuntimeException(e.getMessage(), e);
 		}
