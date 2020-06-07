@@ -5,7 +5,7 @@ import java.util.List;
 public class Movie {
 	
 	private String title;
-	private int year;
+	private Integer year;
 	private List<String> genres;
 	
 	public String getTitle() {
@@ -16,11 +16,11 @@ public class Movie {
 		this.title = title;
 	}
 	
-	public int getYear() {
+	public Integer getYear() {
 		return year;
 	}
 	
-	public void setYear(final int year) {
+	public void setYear(final Integer year) {
 		this.year = year;
 	}
 	
