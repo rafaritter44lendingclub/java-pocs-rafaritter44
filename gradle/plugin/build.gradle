@@ -1,0 +1,23 @@
+plugins {
+    id 'java-gradle-plugin'
+    id 'com.gradle.plugin-publish' version '0.12.0'
+}
+
+version = '0.1.3'
+
+gradlePlugin {
+    plugins {
+        metricsPlugin {
+            id = 'com.github.rafaritter44.metrics'
+            displayName = 'Metrics Plugin'
+            description = 'This plugin displays the following metrics for your project: LOC, number of classes and average LOC per class.'
+            implementationClass = 'com.github.rafaritter44.java_pocs.gradle.plugin.MetricsPlugin'
+        }
+    }
+}
+
+pluginBundle {
+    website = 'https://github.com/rafaritter44/java-pocs/tree/master/gradle/plugin'
+    vcsUrl = 'https://github.com/rafaritter44/java-pocs/tree/master/gradle/plugin'
+    tags = ['metrics', 'number', 'loc', 'classes', 'lines', 'code', 'average']
+}
