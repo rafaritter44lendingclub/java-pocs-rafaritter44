@@ -5,13 +5,10 @@ import java.util.Arrays;
 import java.util.Optional;
 
 import org.apache.http.HttpHost;
-import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
-import org.elasticsearch.action.support.master.AcknowledgedResponse;
-import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestHighLevelClient;
 
-public class Application {
+public class Crud {
 	
 	public static void main(final String[] args) {
 		
@@ -50,11 +47,6 @@ public class Application {
 			
 			// DELETE 404
 			System.out.println("delete 404 present: " + service.delete(nonexistentId));
-			
-			// DELETE INDEX
-			final DeleteIndexRequest request = new DeleteIndexRequest(MovieService.INDEX);
-			final AcknowledgedResponse response = client.indices().delete(request, RequestOptions.DEFAULT);
-			System.out.printf("%s index deletion acknowledged: %b", MovieService.INDEX, response.isAcknowledged());
 			
 		} catch (final IOException e) {
 			e.printStackTrace();
