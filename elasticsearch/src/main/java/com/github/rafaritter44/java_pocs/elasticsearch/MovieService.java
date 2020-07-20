@@ -37,7 +37,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class MovieService {
 	
-	public static final String INDEX = "movies2";
+	public static final String INDEX = "movies";
 	
 	private static final TypeReference<Map<String, Object>> STRING_TO_OBJ_MAP = new TypeReference<Map<String, Object>>() {};
 	
