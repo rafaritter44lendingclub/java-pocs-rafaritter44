@@ -2,6 +2,12 @@
 
 This is an event-sourced tic-tac-toe system implemented using Kafka Streams.
 
+## Architecture
+
+Game commands are processed and validated against current board state. If they are valid, game events are raised and the board state is updated.
+
+![architecture](/event-sourcing/architecture.png)
+
 ## Commands
 
 Here is an example of a command processed by the system:
