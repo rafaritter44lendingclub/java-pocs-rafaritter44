@@ -1,6 +1,6 @@
 package com.github.rafaritter44.tictactoe.game;
 
-public class PlayMoveCommand extends GameCommand {
+public class PlayMoveCommand implements GameCommand {
 
   private Move move;
 

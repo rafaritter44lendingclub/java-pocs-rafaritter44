@@ -1,6 +1,6 @@
 package com.github.rafaritter44.tictactoe.game;
 
-public class StartGameCommand extends GameCommand {
+public class StartGameCommand implements GameCommand {
   @Override
   public boolean isApplicableTo(Board board) {
     return !board.gameHasStarted();

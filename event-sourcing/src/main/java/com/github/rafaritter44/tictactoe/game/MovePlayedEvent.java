@@ -1,6 +1,6 @@
 package com.github.rafaritter44.tictactoe.game;
 
-public class MovePlayedEvent extends GameEvent {
+public class MovePlayedEvent implements GameEvent {
 
   private Move move;
 
