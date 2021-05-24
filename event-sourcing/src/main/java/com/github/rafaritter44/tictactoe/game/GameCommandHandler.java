@@ -14,19 +14,19 @@ public class GameCommandHandler implements Processor<String, GameCommand, String
   private static final Logger LOGGER = LoggerFactory.getLogger(GameCommandHandler.class);
 
   private ProcessorContext<String, GameEvent> context;
-  private KeyValueStore<String, Board> boardStore;
+  private KeyValueStore<String, Board> boardsStore;
 
   @Override
   public void init(ProcessorContext<String, GameEvent> context) {
     this.context = context;
-    this.boardStore = context.getStateStore(StreamsService.BOARDS_STORE);
+    this.boardsStore = context.getStateStore(StreamsService.BOARDS_STORE);
   }
 
   @Override
   public void process(Record<String, GameCommand> record) {
     var gameId = record.key();
     var gameCommand = record.value();
-    var board = Optional.of(gameId).map(boardStore::get).orElseGet(Board::new);
+    var board = Optional.of(gameId).map(boardsStore::get).orElseGet(Board::new);
     if (gameCommand.isApplicableTo(board)) {
       var gameEvent = gameCommand.toEvent();
       context.forward(record.withValue(gameEvent));
