@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.lc.ritter'
+version = '1.0.0'
+
+java {
+    sourceCompatibility = '23'
+    targetCompatibility = '23'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+}
