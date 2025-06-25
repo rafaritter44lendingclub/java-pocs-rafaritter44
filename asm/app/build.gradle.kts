@@ -21,8 +21,9 @@ dependencies {
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
-    // This dependency is used by the application.
+    // This dependencies are used by the application.
     implementation(libs.asm)
+    implementation(libs.asm.commons)
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
