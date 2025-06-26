@@ -12,7 +12,9 @@ import static org.objectweb.asm.Opcodes.*;
 public class PrintInjector2 {
     public static void main(String[] args) throws IOException {
         // Load the compiled Hello.class bytecode
-        byte[] classBytes = Files.readAllBytes(new File("Greeter.class").toPath());
+        String className = "org/example/printinjector/Greeter";
+        String classFile = "app/build/classes/java/main/" + className + ".class";
+        byte[] classBytes = Files.readAllBytes(new File(classFile).toPath());
 
         ClassReader cr = new ClassReader(classBytes);
         ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_FRAMES);
@@ -45,7 +47,7 @@ public class PrintInjector2 {
         byte[] modifiedClass = cw.toByteArray();
 
         // Save modified class
-        try (FileOutputStream fos = new FileOutputStream("Greeter.class")) {
+        try (FileOutputStream fos = new FileOutputStream(classFile)) {
             fos.write(modifiedClass);
         }
 

@@ -13,7 +13,7 @@ public class PrintInjector {
 
     public static void main(String[] args) throws Exception {
         String className = "org/example/printinjector/Greeter";
-        String classFile = "build/classes/java/main/" + className + ".class";
+        String classFile = "app/build/classes/java/main/" + className + ".class";
 
         // 1. Load the original class bytes
         byte[] originalClass = Files.readAllBytes(Paths.get(classFile));
