@@ -9,8 +9,8 @@ import java.nio.file.Path;
 
 class PrintInjectorTest {
     @Test void test() throws Exception {
-        PrintInjector.main(new String[]{});
-        
+        PrintInjector.injectPrint();
+
         Path path = Path.of("build/classes/java/main/");
         URL classDir = path.toUri().toURL();
         try (URLClassLoader loader = new URLClassLoader(new URL[]{classDir}, null)) { // null = no parent classloader

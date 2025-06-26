@@ -10,7 +10,7 @@ import java.nio.file.Path;
 import static org.objectweb.asm.Opcodes.*;
 
 public class PrintInjector {
-    public static void main(String[] args) throws IOException, java.net.URISyntaxException {
+    public static void injectPrint() throws IOException, java.net.URISyntaxException {
         Path classFile = Path.of(Greeter.class.getResource("Greeter.class").toURI());
         byte[] classBytes = Files.readAllBytes(classFile);
 
@@ -45,7 +45,5 @@ public class PrintInjector {
         try (FileOutputStream fos = new FileOutputStream(classFile.toFile())) {
             fos.write(modifiedClass);
         }
-
-        System.out.println("Modified Greeter.class written.");
     }
 }
