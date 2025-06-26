@@ -23,7 +23,7 @@ public class PrintInjector2 {
                                              String signature, String[] exceptions) {
                 MethodVisitor mv = super.visitMethod(access, name, descriptor, signature, exceptions);
 
-                // Target the sayHello method
+                // Target the greet method
                 if (name.equals("greet")) {
                     return new MethodVisitor(ASM9, mv) {
                         @Override
