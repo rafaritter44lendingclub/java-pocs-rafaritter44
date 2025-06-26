@@ -1,4 +1,4 @@
-package org.example;
+package org.example.printinjector;
 
 import org.junit.jupiter.api.Test;
 
@@ -7,9 +7,7 @@ import java.net.URL;
 import java.net.URLClassLoader;
 import java.nio.file.Path;
 
-import org.example.printinjector.PrintInjector;
-
-class AppTest {
+class PrintInjectorTest {
     @Test void test() throws Exception {
         PrintInjector.main(new String[]{});
         
