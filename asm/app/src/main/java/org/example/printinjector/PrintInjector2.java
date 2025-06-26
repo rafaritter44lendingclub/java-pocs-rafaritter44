@@ -2,19 +2,18 @@ package org.example.printinjector;
 
 import org.objectweb.asm.*;
 
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 
 import static org.objectweb.asm.Opcodes.*;
 
 public class PrintInjector2 {
-    public static void main(String[] args) throws IOException {
-        // Load the compiled Hello.class bytecode
-        String className = "org/example/printinjector/Greeter";
-        String classFile = "app/build/classes/java/main/" + className + ".class";
-        byte[] classBytes = Files.readAllBytes(new File(classFile).toPath());
+    public static void main(String[] args) throws IOException, java.net.URISyntaxException {
+        // Load the compiled Greeter.class bytecode
+        Path classFile = Path.of(Greeter.class.getResource("Greeter.class").toURI());
+        byte[] classBytes = Files.readAllBytes(classFile);
 
         ClassReader cr = new ClassReader(classBytes);
         ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_FRAMES);
@@ -47,7 +46,7 @@ public class PrintInjector2 {
         byte[] modifiedClass = cw.toByteArray();
 
         // Save modified class
-        try (FileOutputStream fos = new FileOutputStream(classFile)) {
+        try (FileOutputStream fos = new FileOutputStream(classFile.toFile())) {
             fos.write(modifiedClass);
         }
 
