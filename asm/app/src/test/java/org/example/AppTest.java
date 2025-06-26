@@ -7,11 +7,11 @@ import java.net.URL;
 import java.net.URLClassLoader;
 import java.nio.file.Path;
 
-import org.example.printinjector.PrintInjector2;
+import org.example.printinjector.PrintInjector;
 
 class AppTest {
     @Test void test() throws Exception {
-        PrintInjector2.main(new String[]{});
+        PrintInjector.main(new String[]{});
         
         Path path = Path.of("build/classes/java/main/");
         URL classDir = path.toUri().toURL();
