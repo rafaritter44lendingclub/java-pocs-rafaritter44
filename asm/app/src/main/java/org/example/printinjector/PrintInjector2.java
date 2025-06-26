@@ -11,7 +11,6 @@ import static org.objectweb.asm.Opcodes.*;
 
 public class PrintInjector2 {
     public static void main(String[] args) throws IOException, java.net.URISyntaxException {
-        // Load the compiled Greeter.class bytecode
         Path classFile = Path.of(Greeter.class.getResource("Greeter.class").toURI());
         byte[] classBytes = Files.readAllBytes(classFile);
 
@@ -24,13 +23,11 @@ public class PrintInjector2 {
                                              String signature, String[] exceptions) {
                 MethodVisitor mv = super.visitMethod(access, name, descriptor, signature, exceptions);
 
-                // Target the greet method
                 if (name.equals("greet")) {
                     return new MethodVisitor(ASM9, mv) {
                         @Override
                         public void visitCode() {
                             super.visitCode();
-                            // Inject: System.out.println("Injected by ASM.");
                             mv.visitFieldInsn(GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
                             mv.visitLdcInsn("Injected by ASM.");
                             mv.visitMethodInsn(INVOKEVIRTUAL, "java/io/PrintStream", "println",
@@ -45,7 +42,6 @@ public class PrintInjector2 {
         cr.accept(cv, 0);
         byte[] modifiedClass = cw.toByteArray();
 
-        // Save modified class
         try (FileOutputStream fos = new FileOutputStream(classFile.toFile())) {
             fos.write(modifiedClass);
         }
