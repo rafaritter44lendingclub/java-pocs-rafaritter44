@@ -11,7 +11,7 @@ import static org.objectweb.asm.Opcodes.*;
 
 public class PrintInjector {
     public static void injectPrint() throws IOException, java.net.URISyntaxException {
-        Path classFile = Path.of(Greeter.class.getResource("Greeter.class").toURI());
+        Path classFile = Path.of(GreeterImpl.class.getResource("GreeterImpl.class").toURI());
         byte[] classBytes = Files.readAllBytes(classFile);
 
         ClassReader cr = new ClassReader(classBytes);
