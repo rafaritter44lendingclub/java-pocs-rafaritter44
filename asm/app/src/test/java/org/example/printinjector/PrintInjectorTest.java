@@ -10,7 +10,7 @@ class PrintInjectorTest {
     @Test void test() throws Exception {
         PrintInjector.injectPrint();
 
-        Path path = Path.of("build/classes/java/main/");
+        Path path = Path.of("build/asm-out");
         URL classDir = path.toUri().toURL();
         try (URLClassLoader loader = new URLClassLoader(new URL[]{classDir}, Greeter.class.getClassLoader())) {
             Class<?> greeterClass = loader.loadClass("org.example.printinjector.GreeterImpl");

@@ -2,7 +2,6 @@ package org.example.printinjector;
 
 import org.objectweb.asm.*;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -42,8 +41,12 @@ public class PrintInjector {
         cr.accept(cv, 0);
         byte[] modifiedClass = cw.toByteArray();
 
-        try (FileOutputStream fos = new FileOutputStream(classFile.toFile())) {
-            fos.write(modifiedClass);
-        }
+        Path destinationRoot = Path.of("build", "asm-out");
+        String relativePath = GreeterImpl.class.getName().replace('.', '/') + ".class";
+        Path destinationPath = destinationRoot.resolve(relativePath);
+
+        Files.createDirectories(destinationPath.getParent());
+
+        Files.write(destinationPath, modifiedClass);
     }
 }
