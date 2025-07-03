@@ -1,5 +1,7 @@
 package org.example.printinjector;
 
-public interface Greeter {
-    void greet();
+public class Greeter {
+    public void greet() {
+        System.out.println("Hello!");
+    }
 }

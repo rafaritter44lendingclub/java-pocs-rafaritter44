@@ -2,6 +2,7 @@ package org.example.printinjector;
 
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.nio.file.Path;
@@ -12,11 +13,12 @@ class PrintInjectorTest {
 
         Path path = Path.of("build/asm-out");
         URL classDir = path.toUri().toURL();
-        try (URLClassLoader loader = new URLClassLoader(new URL[]{classDir}, Greeter.class.getClassLoader())) {
-            Class<?> greeterClass = loader.loadClass("org.example.printinjector.GreeterImpl");
+        try (URLClassLoader loader = new URLClassLoader(new URL[]{classDir}, null)) {
+            Class<?> greeterClass = loader.loadClass("org.example.printinjector.Greeter");
 
-            Greeter greeter = (Greeter) greeterClass.getDeclaredConstructor().newInstance();
-            greeter.greet();
+            Object greeter = greeterClass.getDeclaredConstructor().newInstance();
+            Method greet = greeterClass.getMethod("greet");
+            greet.invoke(greeter);
         }
     }
 }

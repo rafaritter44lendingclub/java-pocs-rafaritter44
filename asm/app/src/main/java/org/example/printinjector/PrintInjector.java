@@ -10,7 +10,7 @@ import static org.objectweb.asm.Opcodes.*;
 
 public class PrintInjector {
     public static void injectPrint() throws IOException, java.net.URISyntaxException {
-        Path classFile = Path.of(GreeterImpl.class.getResource("GreeterImpl.class").toURI());
+        Path classFile = Path.of(Greeter.class.getResource("Greeter.class").toURI());
         byte[] classBytes = Files.readAllBytes(classFile);
 
         ClassReader cr = new ClassReader(classBytes);
@@ -42,7 +42,7 @@ public class PrintInjector {
         byte[] modifiedClass = cw.toByteArray();
 
         Path destinationRoot = Path.of("build", "asm-out");
-        String relativePath = GreeterImpl.class.getName().replace('.', '/') + ".class";
+        String relativePath = Greeter.class.getName().replace('.', '/') + ".class";
         Path destinationPath = destinationRoot.resolve(relativePath);
 
         Files.createDirectories(destinationPath.getParent());
