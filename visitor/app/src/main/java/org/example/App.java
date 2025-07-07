@@ -17,15 +17,14 @@ public class App {
             new Triangle(6, 7)
         );
 
-        // 1) Compute total area with AreaVisitor
+        // 1) Compute total area with AreaVisitor.
         AreaVisitor areaVisitor = new AreaVisitor();
         shapes.forEach(s -> s.accept(areaVisitor));
         System.out.printf("Total area: %.2f%n", areaVisitor.getTotalArea());
 
-        // 2) Render SVG markup with SvgExportVisitor
+        // 2) Render SVG markup with SvgExportVisitor.
         SvgExportVisitor svgVisitor = new SvgExportVisitor();
         shapes.forEach(s -> s.accept(svgVisitor));
-
         System.out.println("\nSVG output:\n" + svgVisitor.getSvgContent());
     }
 }
