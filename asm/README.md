@@ -2,8 +2,6 @@
 
 ## Main classes
 
-https://asm.ow2.io/javadoc/org/objectweb/asm/ClassReader.html
-https://asm.ow2.io/javadoc/org/objectweb/asm/ClassWriter.html
 https://asm.ow2.io/javadoc/org/objectweb/asm/ClassVisitor.html
 https://asm.ow2.io/javadoc/org/objectweb/asm/MethodVisitor.html
 https://asm.ow2.io/javadoc/org/objectweb/asm/FieldVisitor.html
