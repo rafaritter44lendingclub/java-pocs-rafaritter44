@@ -1,14 +1,23 @@
 # ASM
 
-## Main classes
+## Main classes and methods
 
 1. [ClassVisitor](https://asm.ow2.io/javadoc/org/objectweb/asm/ClassVisitor.html)
     - [visit(...)](https://asm.ow2.io/javadoc/org/objectweb/asm/ClassVisitor.html#visit(int,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String%5B%5D))
     - [visitMethod(...)](https://asm.ow2.io/javadoc/org/objectweb/asm/ClassVisitor.html#visitMethod(int,java.lang.String,java.lang.String,java.lang.String,java.lang.String%5B%5D))
+    - [visitField(...)](https://asm.ow2.io/javadoc/org/objectweb/asm/ClassVisitor.html#visitField(int,java.lang.String,java.lang.String,java.lang.String,java.lang.Object))
     - [visitEnd()](https://asm.ow2.io/javadoc/org/objectweb/asm/ClassVisitor.html#visitEnd())
 2. [MethodVisitor](https://asm.ow2.io/javadoc/org/objectweb/asm/MethodVisitor.html)
-3. [FieldVisitor](https://asm.ow2.io/javadoc/org/objectweb/asm/FieldVisitor.html)
-4. [Opcodes](https://asm.ow2.io/javadoc/org/objectweb/asm/Opcodes.html)
+    - [visitCode()]()
+    - [visitFieldInsn(...)]()
+    - [visitLdcInsn(...)]()
+    - [visitMethodInsn(...)]()
+    - [visitVarInsn(...)]()
+    - [visitInsn(...)]()
+    - [visitMaxs(...)]()
+    - [visitIntInsn(...)]()
+    - [visitEnd()]()
+3. [Opcodes](https://asm.ow2.io/javadoc/org/objectweb/asm/Opcodes.html)
 
 ## JaCoCo
 
