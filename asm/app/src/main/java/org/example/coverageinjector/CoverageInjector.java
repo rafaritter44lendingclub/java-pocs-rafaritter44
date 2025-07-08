@@ -14,7 +14,7 @@ public class CoverageInjector {
         byte[] original = Files.readAllBytes(classFile);
 
         ClassReader cr = new ClassReader(original);
-        ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_FRAMES | ClassWriter.COMPUTE_MAXS);
+        ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_FRAMES);
 
         ClassVisitor cv = new ClassVisitor(ASM9, cw) {
             private String className;
