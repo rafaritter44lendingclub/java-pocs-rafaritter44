@@ -12,16 +12,16 @@
 ## Main types and methods
 
 1. [ClassVisitor](https://asm.ow2.io/javadoc/org/objectweb/asm/ClassVisitor.html)
-    - [visit(...)](https://asm.ow2.io/javadoc/org/objectweb/asm/ClassVisitor.html#visit(int,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String%5B%5D))
-    - [visitMethod(...)](https://asm.ow2.io/javadoc/org/objectweb/asm/ClassVisitor.html#visitMethod(int,java.lang.String,java.lang.String,java.lang.String,java.lang.String%5B%5D))
-    - [visitField(...)](https://asm.ow2.io/javadoc/org/objectweb/asm/ClassVisitor.html#visitField(int,java.lang.String,java.lang.String,java.lang.String,java.lang.Object))
-    - [visitEnd()](https://asm.ow2.io/javadoc/org/objectweb/asm/ClassVisitor.html#visitEnd())
+    1. [visit(...)](https://asm.ow2.io/javadoc/org/objectweb/asm/ClassVisitor.html#visit(int,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String%5B%5D))
+    2. [visitMethod(...)](https://asm.ow2.io/javadoc/org/objectweb/asm/ClassVisitor.html#visitMethod(int,java.lang.String,java.lang.String,java.lang.String,java.lang.String%5B%5D))
+    3. [visitField(...)](https://asm.ow2.io/javadoc/org/objectweb/asm/ClassVisitor.html#visitField(int,java.lang.String,java.lang.String,java.lang.String,java.lang.Object))
+    4. [visitEnd()](https://asm.ow2.io/javadoc/org/objectweb/asm/ClassVisitor.html#visitEnd())
 2. [MethodVisitor](https://asm.ow2.io/javadoc/org/objectweb/asm/MethodVisitor.html)
-    - [visitCode()](https://asm.ow2.io/javadoc/org/objectweb/asm/MethodVisitor.html#visitCode())
-    - [visitLdcInsn(value)](https://asm.ow2.io/javadoc/org/objectweb/asm/MethodVisitor.html#visitLdcInsn(java.lang.Object))
-    - [visitMethodInsn(...)](https://asm.ow2.io/javadoc/org/objectweb/asm/MethodVisitor.html#visitMethodInsn(int,java.lang.String,java.lang.String,java.lang.String,boolean))
-    - [visitFieldInsn(...)](https://asm.ow2.io/javadoc/org/objectweb/asm/MethodVisitor.html#visitFieldInsn(int,java.lang.String,java.lang.String,java.lang.String))
-    - [visitEnd()](https://asm.ow2.io/javadoc/org/objectweb/asm/MethodVisitor.html#visitEnd())
+    1. [visitCode()](https://asm.ow2.io/javadoc/org/objectweb/asm/MethodVisitor.html#visitCode())
+    2. [visitLdcInsn(value)](https://asm.ow2.io/javadoc/org/objectweb/asm/MethodVisitor.html#visitLdcInsn(java.lang.Object))
+    3. [visitMethodInsn(...)](https://asm.ow2.io/javadoc/org/objectweb/asm/MethodVisitor.html#visitMethodInsn(int,java.lang.String,java.lang.String,java.lang.String,boolean))
+    4. [visitFieldInsn(...)](https://asm.ow2.io/javadoc/org/objectweb/asm/MethodVisitor.html#visitFieldInsn(int,java.lang.String,java.lang.String,java.lang.String))
+    5. [visitEnd()](https://asm.ow2.io/javadoc/org/objectweb/asm/MethodVisitor.html#visitEnd())
 3. [Opcodes](https://asm.ow2.io/javadoc/org/objectweb/asm/Opcodes.html)
 
 ## POCs
