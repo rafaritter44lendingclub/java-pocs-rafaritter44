@@ -24,6 +24,23 @@
     - [visitEnd()](https://asm.ow2.io/javadoc/org/objectweb/asm/MethodVisitor.html#visitEnd())
 3. [Opcodes](https://asm.ow2.io/javadoc/org/objectweb/asm/Opcodes.html)
 
+## POCs
+
+**Getter Injector**
+
+- [Package](app/src/main/java/org/example/getterinjector)
+- [Test](app/src/test/java/org/example/getterinjector/GetterInjectorTest.java)
+
+**Mock Injector**
+
+- [Package](app/src/main/java/org/example/mockinjector)
+- [Test](app/src/test/java/org/example/mockinjector/MockInjectorTest.java)
+
+**Coverage Injector**
+
+- [Package](app/src/main/java/org/example/coverageinjector)
+- [Test](app/src/test/java/org/example/coverageinjector/CoverageInjectorTest.java)
+
 ## JaCoCo
 
 https://github.com/jacoco/jacoco/blob/fc3726eaa6bd48c342d2c0c41b62297d7be4928a/org.jacoco.core/src/org/jacoco/core/internal/instr/InstrSupport.java#L37
