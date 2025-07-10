@@ -18,8 +18,7 @@ public class PrintInjector {
 
         ClassVisitor cv = new ClassVisitor(ASM9, cw) {
             @Override
-            public MethodVisitor visitMethod(int access, String name, String descriptor,
-                                             String signature, String[] exceptions) {
+            public MethodVisitor visitMethod(int access, String name, String descriptor, String signature, String[] exceptions) {
                 MethodVisitor mv = super.visitMethod(access, name, descriptor, signature, exceptions);
 
                 if (name.equals("greet")) {
@@ -29,8 +28,7 @@ public class PrintInjector {
                             super.visitCode();
                             mv.visitFieldInsn(GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
                             mv.visitLdcInsn("Injected by ASM.");
-                            mv.visitMethodInsn(INVOKEVIRTUAL, "java/io/PrintStream", "println",
-                                               "(Ljava/lang/String;)V", false);
+                            mv.visitMethodInsn(INVOKEVIRTUAL, "java/io/PrintStream", "println", "(Ljava/lang/String;)V", false);
                         }
                     };
                 }
