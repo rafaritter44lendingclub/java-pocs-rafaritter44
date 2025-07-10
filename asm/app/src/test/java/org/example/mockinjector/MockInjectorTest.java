@@ -20,7 +20,7 @@ class MockInjectorTest {
 
             Method method = clazz.getMethod("add", int.class, int.class);
             int result = (int) method.invoke(instance, 1, 2);
-            System.out.println("Mocked add result: " + result); // should be 42
+            System.out.println("Mocked add result: " + result);
         }
     }
 }
