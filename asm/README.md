@@ -11,18 +11,117 @@
 
 ## Main types and methods
 
-1. [ClassVisitor](https://asm.ow2.io/javadoc/org/objectweb/asm/ClassVisitor.html)
-    1. [visit(...)](https://asm.ow2.io/javadoc/org/objectweb/asm/ClassVisitor.html#visit(int,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String%5B%5D))
-    2. [visitMethod(...)](https://asm.ow2.io/javadoc/org/objectweb/asm/ClassVisitor.html#visitMethod(int,java.lang.String,java.lang.String,java.lang.String,java.lang.String%5B%5D))
-    3. [visitField(...)](https://asm.ow2.io/javadoc/org/objectweb/asm/ClassVisitor.html#visitField(int,java.lang.String,java.lang.String,java.lang.String,java.lang.Object))
-    4. [visitEnd()](https://asm.ow2.io/javadoc/org/objectweb/asm/ClassVisitor.html#visitEnd())
-2. [MethodVisitor](https://asm.ow2.io/javadoc/org/objectweb/asm/MethodVisitor.html)
-    1. [visitCode()](https://asm.ow2.io/javadoc/org/objectweb/asm/MethodVisitor.html#visitCode())
-    2. [visitLdcInsn(value)](https://asm.ow2.io/javadoc/org/objectweb/asm/MethodVisitor.html#visitLdcInsn(java.lang.Object))
-    3. [visitMethodInsn(...)](https://asm.ow2.io/javadoc/org/objectweb/asm/MethodVisitor.html#visitMethodInsn(int,java.lang.String,java.lang.String,java.lang.String,boolean))
-    4. [visitFieldInsn(...)](https://asm.ow2.io/javadoc/org/objectweb/asm/MethodVisitor.html#visitFieldInsn(int,java.lang.String,java.lang.String,java.lang.String))
-    5. [visitEnd()](https://asm.ow2.io/javadoc/org/objectweb/asm/MethodVisitor.html#visitEnd())
-3. [Opcodes](https://asm.ow2.io/javadoc/org/objectweb/asm/Opcodes.html)
+**ClassVisitor**
+
+1. [visit(...)](https://asm.ow2.io/javadoc/org/objectweb/asm/ClassVisitor.html#visit(int,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String%5B%5D))
+
+Example:
+
+```java
+public class Greeter {
+}
+```
+
+```java
+cv.visit(
+    Opcodes.V1_8,
+    Opcodes.ACC_PUBLIC,
+    "Greeter",
+    null, // no signature (null means not generic)
+    "java/lang/Object",
+    null // no interfaces
+);
+```
+
+2. [visitMethod(...)](https://asm.ow2.io/javadoc/org/objectweb/asm/ClassVisitor.html#visitMethod(int,java.lang.String,java.lang.String,java.lang.String,java.lang.String%5B%5D))
+
+Example:
+
+```java
+public void greet() {
+    System.out.println("Hello!");
+}
+```
+
+```java
+cv.visitMethod(
+    Opcodes.ACC_PUBLIC,
+    "greet",
+    "()V", // descriptor (no params, returns void)
+    null, // no generics
+    null // no exceptions thrown
+);
+```
+
+3. [visitField(...)](https://asm.ow2.io/javadoc/org/objectweb/asm/ClassVisitor.html#visitField(int,java.lang.String,java.lang.String,java.lang.String,java.lang.Object))
+
+Example:
+
+```java
+private static final int count = 10;
+```
+
+```java
+cv.visitField(
+    Opcodes.ACC_PRIVATE | Opcodes.ACC_STATIC | Opcodes.ACC_FINAL,
+    "count",
+    "I", // descriptor (I = int)
+    null, // no generics
+    Integer.valueOf(10)
+);
+```
+
+**MethodVisitor**
+
+1. [visitCode()](https://asm.ow2.io/javadoc/org/objectweb/asm/MethodVisitor.html#visitCode())
+
+Example:
+
+```java
+
+```
+
+```java
+
+```
+
+2. [visitLdcInsn(value)](https://asm.ow2.io/javadoc/org/objectweb/asm/MethodVisitor.html#visitLdcInsn(java.lang.Object))
+
+Example:
+
+```java
+
+```
+
+```java
+
+```
+
+3. [visitMethodInsn(...)](https://asm.ow2.io/javadoc/org/objectweb/asm/MethodVisitor.html#visitMethodInsn(int,java.lang.String,java.lang.String,java.lang.String,boolean))
+
+Example:
+
+```java
+
+```
+
+```java
+
+```
+
+4. [visitFieldInsn(...)](https://asm.ow2.io/javadoc/org/objectweb/asm/MethodVisitor.html#visitFieldInsn(int,java.lang.String,java.lang.String,java.lang.String))
+
+Example:
+
+```java
+
+```
+
+```java
+
+```
+
+[**Opcodes**](https://asm.ow2.io/javadoc/org/objectweb/asm/Opcodes.html)
 
 ## POCs
 
