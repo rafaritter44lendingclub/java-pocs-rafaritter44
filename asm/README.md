@@ -43,6 +43,54 @@
 
 ## JaCoCo
 
-https://github.com/jacoco/jacoco/blob/fc3726eaa6bd48c342d2c0c41b62297d7be4928a/org.jacoco.core/src/org/jacoco/core/internal/instr/InstrSupport.java#L37
-https://github.com/jacoco/jacoco/blob/fc3726eaa6bd48c342d2c0c41b62297d7be4928a/org.jacoco.core/src/org/jacoco/core/internal/instr/ClassFieldProbeArrayStrategy.java#L67
-https://github.com/jacoco/jacoco/blob/fc3726eaa6bd48c342d2c0c41b62297d7be4928a/org.jacoco.core/src/org/jacoco/core/internal/instr/ProbeInserter.java#L81
+**Data Field**
+
+- [Definition](https://github.com/jacoco/jacoco/blob/fc3726eaa6bd48c342d2c0c41b62297d7be4928a/org.jacoco.core/src/org/jacoco/core/internal/instr/InstrSupport.java#L37)
+- [Creation](https://github.com/jacoco/jacoco/blob/fc3726eaa6bd48c342d2c0c41b62297d7be4928a/org.jacoco.core/src/org/jacoco/core/internal/instr/ClassFieldProbeArrayStrategy.java#L67)
+
+
+The `createInitMethod` function generates something equivalent to this (in bytecode):
+
+```java
+static boolean[] $jacocoInit() {
+    if (__$jacocoData != null) return __$jacocoData;
+    __$jacocoData = new boolean[probeCount];
+    return __$jacocoData;
+}
+```
+
+**Probe**
+
+- [Insertion](https://github.com/jacoco/jacoco/blob/fc3726eaa6bd48c342d2c0c41b62297d7be4928a/org.jacoco.core/src/org/jacoco/core/internal/instr/ProbeInserter.java#L81)
+
+The `insertProbe(int id)` function generates something equivalent to this (in bytecode):
+
+```java
+__$jacocoData[id] = true;
+```
+
+So, suppose your application defines the following method:
+
+```java
+void foo() {
+    if (x > 0)
+        doSomething();
+    else
+        doOtherThing();
+}
+```
+
+Then, JaCoCo might instrument it like this:
+
+```java
+void foo() {
+    $jacocoData[0] = true;
+    if (x > 0) {
+        $jacocoData[1] = true;
+        doSomething();
+    } else {
+        $jacocoData[2] = true;
+        doOtherThing();
+    }
+}
+```
