@@ -27,9 +27,9 @@ cv.visit(
     Opcodes.V1_8,
     Opcodes.ACC_PUBLIC,
     "Greeter",
-    null, // no signature (null means not generic)
+    null, // No signature (null means not generic).
     "java/lang/Object",
-    null // no interfaces
+    null // No interfaces.
 );
 ```
 
@@ -47,9 +47,9 @@ public void greet() {
 cv.visitMethod(
     Opcodes.ACC_PUBLIC,
     "greet",
-    "()V", // descriptor (no params, returns void)
-    null, // no generics
-    null // no exceptions thrown
+    "()V", // Descriptor (no params, returns void).
+    null, // No generics.
+    null // No exceptions thrown.
 );
 ```
 
@@ -65,8 +65,8 @@ private static final int count = 10;
 cv.visitField(
     Opcodes.ACC_PRIVATE | Opcodes.ACC_STATIC | Opcodes.ACC_FINAL,
     "count",
-    "I", // descriptor (I = int)
-    null, // no generics
+    "I", // Descriptor (I = int).
+    null, // No generics.
     Integer.valueOf(10)
 );
 ```
@@ -96,7 +96,7 @@ mv.visitMethodInsn(
     "java/io/PrintStream",
     "println",
     "(Ljava/lang/String;)V",
-    false // not an interface
+    false // Not an interface.
 );
 ```
 
