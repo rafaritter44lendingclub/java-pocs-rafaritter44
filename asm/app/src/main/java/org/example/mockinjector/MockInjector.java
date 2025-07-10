@@ -29,7 +29,7 @@ public class MockInjector {
                         @Override
                         public void visitCode() {
                             mv.visitCode();
-                            mv.visitLdcInsn(42); // Push constant int 42
+                            mv.visitLdcInsn(7);
                             mv.visitInsn(IRETURN);
                             mv.visitMaxs(1, 3); // Stack size, local variables (ignored with COMPUTE_MAXS)
                             mv.visitEnd();
