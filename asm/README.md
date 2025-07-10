@@ -73,52 +73,31 @@ cv.visitField(
 
 **MethodVisitor**
 
-1. [visitCode()](https://asm.ow2.io/javadoc/org/objectweb/asm/MethodVisitor.html#visitCode())
+1. [visitFieldInsn(...)](https://asm.ow2.io/javadoc/org/objectweb/asm/MethodVisitor.html#visitFieldInsn(int,java.lang.String,java.lang.String,java.lang.String))
 
 Example:
 
 ```java
-
+mv.visitFieldInsn(
+    Opcodes.GETSTATIC,
+    "java/lang/System",
+    "out",
+    "Ljava/io/PrintStream;"
+);
 ```
 
-```java
-
-```
-
-2. [visitLdcInsn(value)](https://asm.ow2.io/javadoc/org/objectweb/asm/MethodVisitor.html#visitLdcInsn(java.lang.Object))
+2. [visitMethodInsn(...)](https://asm.ow2.io/javadoc/org/objectweb/asm/MethodVisitor.html#visitMethodInsn(int,java.lang.String,java.lang.String,java.lang.String,boolean))
 
 Example:
 
 ```java
-
-```
-
-```java
-
-```
-
-3. [visitMethodInsn(...)](https://asm.ow2.io/javadoc/org/objectweb/asm/MethodVisitor.html#visitMethodInsn(int,java.lang.String,java.lang.String,java.lang.String,boolean))
-
-Example:
-
-```java
-
-```
-
-```java
-
-```
-
-4. [visitFieldInsn(...)](https://asm.ow2.io/javadoc/org/objectweb/asm/MethodVisitor.html#visitFieldInsn(int,java.lang.String,java.lang.String,java.lang.String))
-
-Example:
-
-```java
-
-```
-
-```java
-
+mv.visitMethodInsn(
+    Opcodes.INVOKEVIRTUAL,
+    "java/io/PrintStream",
+    "println",
+    "(Ljava/lang/String;)V",
+    false // not an interface
+);
 ```
 
 [**Opcodes**](https://asm.ow2.io/javadoc/org/objectweb/asm/Opcodes.html)
