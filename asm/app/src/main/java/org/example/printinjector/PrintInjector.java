@@ -20,7 +20,6 @@ public class PrintInjector {
             @Override
             public MethodVisitor visitMethod(int access, String name, String descriptor, String signature, String[] exceptions) {
                 MethodVisitor mv = super.visitMethod(access, name, descriptor, signature, exceptions);
-
                 if (name.equals("greet")) {
                     return new MethodVisitor(ASM9, mv) {
                         @Override
@@ -31,8 +30,9 @@ public class PrintInjector {
                             mv.visitMethodInsn(INVOKEVIRTUAL, "java/io/PrintStream", "println", "(Ljava/lang/String;)V", false);
                         }
                     };
+                } else {
+                    return mv;
                 }
-                return mv;
             }
         };
 
