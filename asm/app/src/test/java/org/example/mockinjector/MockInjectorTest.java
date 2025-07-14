@@ -2,6 +2,8 @@ package org.example.mockinjector;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLClassLoader;
@@ -18,9 +20,9 @@ class MockInjectorTest {
 
             Object calculator = calculatorClass.getDeclaredConstructor().newInstance();
             Method add = calculatorClass.getMethod("add", int.class, int.class);
-            int result = (int) add.invoke(calculator, 1, 2);
+            var result = add.invoke(calculator, 1, 2);
 
-            System.out.println("Mocked add result: " + result);
+            assertEquals(7, result);
         }
     }
 }

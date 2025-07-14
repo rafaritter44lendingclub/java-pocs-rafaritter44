@@ -2,6 +2,8 @@ package org.example.getterinjector;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLClassLoader;
@@ -16,11 +18,11 @@ class GetterInjectorTest {
         try (URLClassLoader loader = new URLClassLoader(new URL[]{classDir}, null)) {
             Class<?> personClass = loader.loadClass("org.example.getterinjector.Person");
 
-            Object person = personClass.getDeclaredConstructor(String.class).newInstance("John Doe");
+            String name = "Raskólnikov";
+            Object person = personClass.getDeclaredConstructor(String.class).newInstance(name);
             Method getName = personClass.getMethod("getName");
-            String name = (String) getName.invoke(person);
 
-            System.out.println("Getter returned: " + name);
+            assertEquals(name, getName.invoke(person));
         }
     }
 }

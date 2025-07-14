@@ -2,12 +2,13 @@ package org.example.coverageinjector;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.nio.file.Path;
-import java.util.Arrays;
 
 class CoverageInjectorTest {
     @Test
@@ -28,7 +29,8 @@ class CoverageInjectorTest {
 
             Field coverage = printerClass.getField("__coverage");
             boolean[] flags = (boolean[]) coverage.get(null);
-            System.out.println("Coverage: " + Arrays.toString(flags));
+
+            assertArrayEquals(new boolean[]{true, false}, flags);
         }
     }
 }
