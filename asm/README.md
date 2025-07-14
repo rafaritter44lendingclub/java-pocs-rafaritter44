@@ -119,6 +119,10 @@ mv.visitMethodInsn(
 - [Package](app/src/main/java/org/example/coverageinjector)
 - [Test](app/src/test/java/org/example/coverageinjector/CoverageInjectorTest.java)
 
+**Test results**
+
+![Test results](screenshots/test-results.png)
+
 ## JaCoCo
 
 **Data Field**
