@@ -21,8 +21,7 @@ public class GetterInjector {
             private String className;
 
             @Override
-            public void visit(int version, int access, String name, String signature,
-                              String superName, String[] interfaces) {
+            public void visit(int version, int access, String name, String signature, String superName, String[] interfaces) {
                 className = name;
                 super.visit(version, access, name, signature, superName, interfaces);
             }
@@ -36,7 +35,7 @@ public class GetterInjector {
                 mv.visitFieldInsn(GETFIELD, className, "name", "Ljava/lang/String;");
                 mv.visitInsn(ARETURN);
 
-                mv.visitMaxs(0, 0); // Ignored with COMPUTE_MAXS
+                mv.visitMaxs(0, 0); // Ignored with COMPUTE_MAXS.
                 mv.visitEnd();
 
                 super.visitEnd();
