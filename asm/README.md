@@ -7,7 +7,6 @@
 **Print Injector**
 
 - [Package](app/src/main/java/org/example/printinjector)
-- [Test](app/src/test/java/org/example/printinjector/PrintInjectorTest.java)
 
 ## Main types and methods
 
