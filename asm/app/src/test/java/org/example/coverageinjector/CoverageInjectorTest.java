@@ -14,21 +14,21 @@ class CoverageInjectorTest {
     void test() throws Exception {
         CoverageInjector.injectCoverage();
 
-        Path path = Path.of("build/classes/java/main/");
-        URL classDir = path.toUri().toURL();
+        URL classDir = Path.of("build", "asm-out").toUri().toURL();
         try (URLClassLoader loader = new URLClassLoader(new URL[]{classDir}, null)) {
             Class<?> printerClass = loader.loadClass("org.example.coverageinjector.Printer");
+
             Object printer = printerClass.getDeclaredConstructor().newInstance();
 
             Method methodA = printerClass.getMethod("a");
             Method methodB = printerClass.getMethod("b");
 
             methodA.invoke(printer);
-            // methodB not invoked
+            // methodB not invoked.
 
             Field coverage = printerClass.getField("__coverage");
             boolean[] flags = (boolean[]) coverage.get(null);
-            System.out.println("Coverage: " + Arrays.toString(flags)); // [true, false]
+            System.out.println("Coverage: " + Arrays.toString(flags));
         }
     }
 }
