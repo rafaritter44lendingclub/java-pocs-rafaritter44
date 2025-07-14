@@ -8,7 +8,8 @@ import java.net.URLClassLoader;
 import java.nio.file.Path;
 
 class PrintInjectorTest {
-    @Test void test() throws Exception {
+    @Test
+    void test() throws Exception {
         PrintInjector.injectPrint();
 
         URL classDir = Path.of("build", "asm-out").toUri().toURL();
