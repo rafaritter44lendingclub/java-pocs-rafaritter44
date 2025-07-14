@@ -12,14 +12,14 @@ class GetterInjectorTest {
     void test() throws Exception {
         GetterInjector.injectGetter();
 
-        Path path = Path.of("build/classes/java/main/");
-        URL classDir = path.toUri().toURL();
+        URL classDir = Path.of("build", "asm-out").toUri().toURL();
         try (URLClassLoader loader = new URLClassLoader(new URL[]{classDir}, null)) {
             Class<?> personClass = loader.loadClass("org.example.getterinjector.Person");
-            Object person = personClass.getDeclaredConstructor(String.class).newInstance("John Doe");
 
+            Object person = personClass.getDeclaredConstructor(String.class).newInstance("John Doe");
             Method getName = personClass.getMethod("getName");
             String name = (String) getName.invoke(person);
+
             System.out.println("Getter returned: " + name);
         }
     }
