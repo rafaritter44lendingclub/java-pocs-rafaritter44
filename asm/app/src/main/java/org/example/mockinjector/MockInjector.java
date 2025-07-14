@@ -2,7 +2,6 @@ package org.example.mockinjector;
 
 import org.objectweb.asm.*;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,7 +9,7 @@ import java.nio.file.Path;
 import static org.objectweb.asm.Opcodes.*;
 
 public class MockInjector {
-    public static void mockAddMethod() throws IOException, java.net.URISyntaxException {
+    public static void injectMock() throws IOException, java.net.URISyntaxException {
         Path classFile = Path.of(Calculator.class.getResource("Calculator.class").toURI());
         byte[] classBytes = Files.readAllBytes(classFile);
 
@@ -19,33 +18,34 @@ public class MockInjector {
 
         ClassVisitor cv = new ClassVisitor(ASM9, cw) {
             @Override
-            public MethodVisitor visitMethod(int access, String name, String descriptor,
-                                             String signature, String[] exceptions) {
+            public MethodVisitor visitMethod(int access, String name, String descriptor, String signature, String[] exceptions) {
                 MethodVisitor mv = super.visitMethod(access, name, descriptor, signature, exceptions);
-
                 if (name.equals("add") && descriptor.equals("(II)I")) {
-                    // Replace method body
                     return new MethodVisitor(ASM9, mv) {
                         @Override
                         public void visitCode() {
                             mv.visitCode();
                             mv.visitLdcInsn(7);
                             mv.visitInsn(IRETURN);
-                            mv.visitMaxs(1, 3); // Stack size, local variables (ignored with COMPUTE_MAXS)
+                            mv.visitMaxs(0, 0); // Ignored with COMPUTE_MAXS.
                             mv.visitEnd();
                         }
                     };
+                } else {
+                    return mv;
                 }
-
-                return mv;
             }
         };
 
         cr.accept(cv, 0);
         byte[] modifiedClass = cw.toByteArray();
 
-        try (FileOutputStream fos = new FileOutputStream(classFile.toFile())) {
-            fos.write(modifiedClass);
-        }
+        Path destinationRoot = Path.of("build", "asm-out");
+        String relativePath = Calculator.class.getName().replace('.', '/') + ".class";
+        Path destinationPath = destinationRoot.resolve(relativePath);
+
+        Files.createDirectories(destinationPath.getParent());
+
+        Files.write(destinationPath, modifiedClass);
     }
 }

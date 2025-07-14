@@ -10,16 +10,16 @@ import java.nio.file.Path;
 class MockInjectorTest {
     @Test
     void test() throws Exception {
-        MockInjector.mockAddMethod();
+        MockInjector.injectMock();
 
-        Path path = Path.of("build/classes/java/main/");
-        URL classDir = path.toUri().toURL();
+        URL classDir = Path.of("build", "asm-out").toUri().toURL();
         try (URLClassLoader loader = new URLClassLoader(new URL[]{classDir}, null)) {
-            Class<?> clazz = loader.loadClass("org.example.mockinjector.Calculator");
-            Object instance = clazz.getDeclaredConstructor().newInstance();
+            Class<?> calculatorClass = loader.loadClass("org.example.mockinjector.Calculator");
 
-            Method method = clazz.getMethod("add", int.class, int.class);
-            int result = (int) method.invoke(instance, 1, 2);
+            Object calculator = calculatorClass.getDeclaredConstructor().newInstance();
+            Method add = calculatorClass.getMethod("add", int.class, int.class);
+            int result = (int) add.invoke(calculator, 1, 2);
+
             System.out.println("Mocked add result: " + result);
         }
     }
