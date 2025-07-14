@@ -1,15 +1,12 @@
 package org.example.printinjector;
 
-import org.junit.jupiter.api.Test;
-
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.nio.file.Path;
 
-class PrintInjectorTest {
-    @Test
-    void test() throws Exception {
+public class Main {
+    public static void main(String[] args) throws Exception {
         PrintInjector.injectPrint();
 
         URL classDir = Path.of("build", "asm-out").toUri().toURL();
