@@ -4,9 +4,9 @@
 
 ## Hello, World!
 
-**Print Injector**
+- [Code](app/src/main/java/org/example/printinjector)
 
-- [Package](app/src/main/java/org/example/printinjector)
+![Hello, World!](screenshots/hello-world.png)
 
 ## Main types and methods
 
