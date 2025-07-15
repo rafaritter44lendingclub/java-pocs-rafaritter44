@@ -10,7 +10,7 @@
 
 ## Main types and methods
 
-**ClassVisitor**
+### ClassVisitor
 
 1. [visit(...)](https://asm.ow2.io/javadoc/org/objectweb/asm/ClassVisitor.html#visit(int,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String%5B%5D))
 
@@ -70,7 +70,7 @@ cv.visitField(
 );
 ```
 
-**MethodVisitor**
+### MethodVisitor
 
 1. [visitFieldInsn(...)](https://asm.ow2.io/javadoc/org/objectweb/asm/MethodVisitor.html#visitFieldInsn(int,java.lang.String,java.lang.String,java.lang.String))
 
@@ -99,7 +99,7 @@ mv.visitMethodInsn(
 );
 ```
 
-[**Opcodes**](https://asm.ow2.io/javadoc/org/objectweb/asm/Opcodes.html)
+### [Opcodes](https://asm.ow2.io/javadoc/org/objectweb/asm/Opcodes.html)
 
 ## POCs
 
